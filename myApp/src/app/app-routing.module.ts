@@ -7,8 +7,10 @@ import { PageNotFoundComponent } from './views/page-not-found/pages/page-not-fou
 
 const routes: Routes = [
   { path: 'home', component: PageHomeComponent},
-  { path: 'orders', component: PageListOrderComponent},
-  { path: 'clients', component: PageClientComponent},
+  { path: 'orders', loadChildren: () => import('./views/order/order.module').then(m => m.OrderModule)},
+  //{ path: 'orders', component: PageListOrderComponent},
+  { path: 'clients', loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule)},
+  //{ path: 'clients', component: PageClientComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent}
 ];
