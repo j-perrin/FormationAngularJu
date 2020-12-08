@@ -9,14 +9,16 @@ import { ClientService } from '../../services/client.service';
 })
 export class PageClientComponent implements OnInit {
 
-  public client: Client[];
+  public headers: string[];
+  public clients: Client[];
 
   constructor(private clientService: ClientService) { }
 
   ngOnInit(): void {
+    this.headers = ['Type', 'Nom', 'Ca', 'Ca Total','Commentaire']
     this.clientService.collection.subscribe(datas => {
-      this.client = datas
-      console.log(this.client);
+      this.clients = datas
+      console.log(this.clients);
     });
 
   }
