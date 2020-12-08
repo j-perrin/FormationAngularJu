@@ -16,6 +16,7 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
+    "strictPropertyInitialization": false, // permet d'initialiser la variable sans spécifier une valeur
     "lib": [
       "es2018",
       "dom"

@@ -19,4 +19,8 @@ export class ContentComponent implements OnInit {
   public switch(): void{
     this.open = !this.open;
   }
+
+  public deconnexion(): void{
+    console.log("Click on deconnexion icon")
+  }
 }
