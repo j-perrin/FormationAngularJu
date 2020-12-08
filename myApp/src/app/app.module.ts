@@ -9,6 +9,7 @@ import { UiModule } from './ui/ui.module';
 import { IconModule } from './icon/icon.module';
 import { CoreModule } from './core/core.module';
 import { TextsModule } from './texts/texts.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,13 @@ import { TextsModule } from './texts/texts.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgbModule,
     // FontAwesomeModule
     UiModule,
     IconModule,
     CoreModule,
-    TextsModule
+    TextsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
