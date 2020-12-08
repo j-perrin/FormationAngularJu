@@ -13,8 +13,8 @@
         <td>{{ c.typePresta }}</td>
         <td>{{ c.client }}</td>
         <td>{{ c.tjmHT }}</td>
-        <td>{{ c.totalHT() }}</td>
-        <td>{{ c.totalTTC() }}</td>
+        <td>{{ c | total | currency: 'EUR' }}</td>
+        <td>{{ c | total: 'TTC' | currency: 'EUR' }}</td>
         <td>{{ c.state }}</td>
       </tr>
     </ng-template>
