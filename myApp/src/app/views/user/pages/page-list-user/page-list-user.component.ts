@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/core/services/user.service';
+import { BtnI } from 'src/app/shared/interfaces/btn-i';
 import { User } from 'src/app/shared/models/user.model';
 
 @Component({
@@ -12,14 +13,14 @@ export class PageListUserComponent implements OnInit {
   public headers: string[];
   public users: User[];
 
-  public label: string = "Add user"
-  public route: string = "add"
+  public btn: BtnI;
 
 
   constructor(public userService: UserService) { }
 
   ngOnInit(): void {
     this.headers = ['Nom', 'Role'];
+    this.btn = {label: "Add user", route: "add"};
     this.userService.user.subscribe(datas => {
       this.users = datas;
       console.log(this.users);

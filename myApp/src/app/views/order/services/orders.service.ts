@@ -75,4 +75,13 @@ export class OrdersService {
     return this.update(obj);
   }
 
+  public getFilterByState(state: StateOrder): Observable<Order[]>{
+    return this.http.get<Order[]>(`${this.url}orders`).pipe(
+      map(datas => datas
+        .filter(data => data.state === state)
+        .map(filterdata => new Order(filterdata))
+        )
+    );
+  }
+
 }

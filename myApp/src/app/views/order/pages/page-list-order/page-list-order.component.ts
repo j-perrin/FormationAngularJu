@@ -18,21 +18,17 @@ export class PageListOrderComponent implements OnInit {
   public btnHref: BtnI;
   public btnAction: BtnI;
 
-  public labelRoute: string = 'Add an order';
-  public labelHref: string = 'Go to Google';
-  public labelAction: string = 'Open popup';
-  public route: string = 'add';
-  public action: boolean = true;
-  public href: string = 'http://www.google.fr';
-
+  public btnFilter: BtnI;
+  public filterSwitch: boolean = false;
 
   constructor(private orderService: OrdersService) { }
 
   ngOnInit(): void {
     this.headers = ['Type', 'Client', 'Nb. jours', 'Total HT', 'Total TTC', 'Etat']
-   /*  this.btnRoute = {label:'Add an order', route:'add'};
+    this.btnRoute = {label:'Add an order', route:'add'};
     this.btnHref = {label:'Go to Google', href:'http://www.google.fr'};
-    this.btnAction = {label:'Open popup', action:true}; */
+    this.btnAction = {label:'Open popup', action:true};
+    this.btnFilter = {label:'Filter', action:true};
 
 
     this.orderService.collection.subscribe(datas => {
@@ -52,6 +48,21 @@ export class PageListOrderComponent implements OnInit {
 
   public openPopup(): void{
     console.log("Test open popup!")
+  }
+
+  public filterCancel():void{
+    if(!this.filterSwitch){
+      console.log(this.filterSwitch)
+      this.orderService.getFilterByState(StateOrder.CANCEL).subscribe(datas => {
+        this.orders = datas;
+      })
+    } else {
+      console.log(this.filterSwitch)
+      this.orderService.collection.subscribe(datas => {
+        this.orders = datas
+      });
+    }
+    this.filterSwitch = !this.filterSwitch;
   }
 
 }
