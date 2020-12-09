@@ -1,4 +1,4 @@
-<app-table-light *ngIf="clients" [headers]="headers">
+<app-table-dark *ngIf="clients" [headers]="headers">
 <tr *ngFor="let c of clients">
   <!-- <td>{{ c.state }}</td>-->
   <td>
@@ -11,5 +11,5 @@
   <td>{{ c.total() }}</td>
   <td>{{ c.comment }}</td>
 </tr>
-</app-table-light>
+</app-table-dark>
 

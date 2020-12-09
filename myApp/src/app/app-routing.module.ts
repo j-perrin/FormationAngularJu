@@ -12,6 +12,7 @@ const routes: Routes = [
   //{ path: 'orders', component: PageListOrderComponent},
   { path: 'clients', canActivate: [ControlService], loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule)},
   //{ path: 'clients', component: PageClientComponent},
+  { path: 'users', canActivate: [ControlService], loadChildren: () => import('./views/user/user.module').then(m => m.UserModule)},
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent}
 ];

@@ -27,7 +27,9 @@ export class PageClientComponent implements OnInit {
 
   public changeClientState(client: Client, event: any):void {
     console.log(event);
-    this.clientService.changeClientState(client, event.target.value).subscribe();
+    this.clientService.changeClientState(client, event.target.value).subscribe( data => {
+      client.state = data.state //useless I guess
+    });
   }
 
 }
