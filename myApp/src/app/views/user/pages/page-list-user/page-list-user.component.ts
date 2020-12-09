@@ -12,6 +12,10 @@ export class PageListUserComponent implements OnInit {
   public headers: string[];
   public users: User[];
 
+  public label: string = "Add user"
+  public route: string = "add"
+
+
   constructor(public userService: UserService) { }
 
   ngOnInit(): void {
