@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateClient } from 'src/app/shared/enums/state-client.enum';
 import { Client } from 'src/app/shared/models/client.model';
 import { ClientService } from '../../services/client.service';
 
@@ -11,6 +12,7 @@ export class PageClientComponent implements OnInit {
 
   public headers: string[];
   public clients: Client[];
+  public typeList: string[] = Object.values(StateClient);
 
   constructor(private clientService: ClientService) { }
 
@@ -21,6 +23,11 @@ export class PageClientComponent implements OnInit {
       console.log(this.clients);
     });
 
+  }
+
+  public changeClientState(client: Client, event: any):void {
+    console.log(event);
+    this.clientService.changeClientState(client, event.target.value).subscribe();
   }
 
 }

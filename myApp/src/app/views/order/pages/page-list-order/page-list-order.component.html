@@ -5,6 +5,10 @@
   <td [appColorDay]="c.nbJours">{{ c | jour }}</td>
   <td>{{ c | total | currency: 'EUR' }}</td>
   <td>{{ c | total: 'TTC' | currency: 'EUR' }}</td>
-  <td [appColorState]="c.state">{{ c.state }}</td>
+  <td [appColorState]="c.state">
+    <select (change)="stateChange(c, $event)">
+      <option *ngFor="let item of states" [value]="item" [selected]="item === c.state">{{ item }} </option>
+    </select>
+  </td>
 </tr>
 </app-table-light>
