@@ -14,7 +14,7 @@ export class UserService {
   private url: string = environment.urlApi;
 
   constructor(private http: HttpClient) {
-    this.userList = this.http.get<User[]>(`${this.url}orders`).pipe(
+    this.userList = this.http.get<User[]>(`${this.url}users`).pipe(
       map(datas => {
         return datas.map(obj => {
           return new User(obj);

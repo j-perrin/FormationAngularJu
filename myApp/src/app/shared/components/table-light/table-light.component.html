@@ -8,6 +8,9 @@
     </tr>
   </thead>
   <tbody>
+
+    <ng-content></ng-content>
+    <!--
     <ng-template [ngIf]="collectionOrder" [ngIfElse]="clientCollection">
       <tr *ngFor="let c of collectionOrder">
         <td>{{ c.typePresta }}</td>
@@ -27,5 +30,6 @@
         <td>{{ c.comment }}</td>
       </tr>
     </ng-template>
+  -->
   </tbody>
 </table>

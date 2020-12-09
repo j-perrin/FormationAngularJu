@@ -11,14 +11,21 @@ import { User } from 'src/app/shared/models/user.model';
 export class PageHomeComponent implements OnInit {
 
   public users: User[];
+  public user: User;
   public userDescription: string;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
   this.userService.user.subscribe(datas => {
-    this.users = datas
+    this.users = datas;
     console.log(this.users);
+    this.user = datas[0];
+    // this.userDescription = this.user.description();
+    this.userService.getByUsernameAndPassword(this.user).subscribe( data => {
+      //this.user = data;
+      this.userDescription = data.description();
+    })
   });
   }
 
