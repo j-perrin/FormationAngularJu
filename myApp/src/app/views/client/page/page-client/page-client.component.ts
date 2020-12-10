@@ -21,13 +21,16 @@ export class PageClientComponent implements OnInit {
   public typeList: string[] = Object.values(StateClient);
   public filterSwitch: boolean = false;
   public btnFilter: BtnI;
+  public btnRoute: BtnI;
 
   constructor(private clientService: ClientService) { }
 
   ngOnInit(): void {
     this.title = "Clients"
     this.subtitle = "List of Clients"
+
     this.btnFilter = {label:"Show little ca", action:true};
+    this.btnRoute = {label:"Add client", route:"add"};
     this.headers = ['Type', 'Nom', 'Ca', 'Ca Total','Commentaire']
     this.filterSwitch = true;
     this.clients = this.clientService.collection;

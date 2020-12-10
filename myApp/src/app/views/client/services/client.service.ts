@@ -57,4 +57,12 @@ export class ClientService {
     )
   }
 
+  public add(client: Client): Observable<Client>{
+    return this.http.post<Client>(`${this.url}clients`, client).pipe(
+      map(datas => {
+        return new Client(datas);
+      })
+    )
+  }
+
 }

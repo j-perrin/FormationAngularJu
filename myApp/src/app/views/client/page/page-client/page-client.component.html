@@ -15,6 +15,7 @@
   </tr>
   </app-table-dark>
 
+  <app-btn [label]="btnRoute.label" [route]="btnRoute.route"></app-btn>
   <app-btn [label]="btnFilter.label" [action]="btnFilter.action" (clicked)="filterCa()">
     <app-icon-filter *ngIf="!btnFilter.label"></app-icon-filter>
   </app-btn>

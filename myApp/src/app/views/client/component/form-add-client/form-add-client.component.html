@@ -1,0 +1,33 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- Champs Type -->
+    <div class="form-goup">
+      <label for="name">Name</label>
+      <input formControlName="name" type="text" class="form-control" id="name">
+    </div>
+    <!-- Champs CA -->
+    <div class="form-goup">
+      <label for="ca">Chiffre d'affaire</label>
+      <input formControlName="ca" type="number" class="form-control" id="ca">
+    </div>
+    <!-- Champs tva -->
+    <div class="form-goup">
+      <label for="tva">TVA</label>
+      <input formControlName="tva" type="number" class="form-control" id="tva">
+    </div>
+    <!-- Champs state -->
+    <div class="form-goup">
+      <label for="state">Etat</label>
+      <select formControlName="state" class="form-control" id="state">
+        <option *ngFor="let item of states" [ngValue]="item">{{item}}</option>
+      </select>
+    </div>
+    <!-- Champs comment -->
+    <div class="form-goup">
+      <label for="comment">Comment</label>
+      <textarea formControlName="comment" class="form-control" id="comment"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+  </form>
+  </div>

@@ -9,6 +9,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 export class GlobalTextComponent implements OnInit {
 
   @Input() page:boolean;
+  @Input() bold:boolean;
 
   constructor() { }
 

@@ -7,16 +7,20 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { IconModule } from 'src/app/icon/icon.module';
 import { TemplatesModule } from 'src/app/templates/templates.module';
 import { TextsModule } from 'src/app/texts/texts.module';
+import { PageAddClientComponent } from './page/page-add-client/page-add-client.component';
+import { FormAddClientComponent } from './component/form-add-client/form-add-client.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [PageClientComponent],
+  declarations: [PageClientComponent, PageAddClientComponent, FormAddClientComponent],
   imports: [
     CommonModule,
     ClientRoutingModule,
     SharedModule,
     IconModule,
-    TemplatesModule
+    TemplatesModule,
+    ReactiveFormsModule
   ]
 })
 export class ClientModule { }
