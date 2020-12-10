@@ -7,7 +7,7 @@ import { PageListOrderComponent } from './views/order/pages/page-list-order/page
 import { PageNotFoundComponent } from './views/page-not-found/pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: 'home', component: PageHomeComponent},
+  { path: 'home', loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule)},
   { path: 'orders', canActivate: [ControlService], loadChildren: () => import('./views/order/order.module').then(m => m.OrderModule)},
   //{ path: 'orders', component: PageListOrderComponent},
   { path: 'clients', canActivate: [ControlService], loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule)},
