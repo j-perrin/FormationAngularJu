@@ -42,7 +42,12 @@ export class UserService {
   }
 
   public getByUsernameAndPassword(user: User): Observable<User>{
-    return this.http.get<User>(`${this.url}users?username=${user.username}&password=${user.password}`)
-    .pipe( map(data => {return new User(data)}))
+    return this.http.get<any>(`${this.url}users?username=${user.username}&password=${user.password}`)
+    .pipe( map(data => {
+      console.log(data)
+      console.log(data[0])
+      return new User(data[0]);
+    })
+    )
   }
 }

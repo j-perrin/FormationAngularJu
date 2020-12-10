@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-content',
@@ -9,7 +10,7 @@ export class ContentComponent implements OnInit {
 
   public open: boolean;
 
-  constructor() {
+  constructor(private router: Router) {
     this.open = false;
   }
 
@@ -22,11 +23,15 @@ export class ContentComponent implements OnInit {
 
   public connexion(): void{
     if(localStorage.userConnected === 'true'){
-      localStorage.removeItem("userConnected");
+      // localStorage.removeItem("userConnected");
+      // localStorage.removeItem("userRole");
+      // localStorage.removeItem("username");
+      localStorage.clear();
+      this.router.navigate(["/home"]);
     }
-    else {
-      localStorage.userConnected = 'true';
-    }
+    // else {
+    //   localStorage.userConnected = 'true';
+    // }
     console.log("Click on connexion icon")
   }
 }

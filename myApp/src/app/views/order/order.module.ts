@@ -20,7 +20,8 @@ import { PageAddOrderComponent } from './pages/page-add-order/page-add-order.com
     SharedModule,
     IconModule,
     TemplatesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ]
 })
 export class OrderModule { }

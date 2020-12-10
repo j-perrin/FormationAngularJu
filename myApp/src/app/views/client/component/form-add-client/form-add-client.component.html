@@ -5,6 +5,7 @@
       <label for="name">Name</label>
       <input formControlName="name" type="text" class="form-control" id="name">
     </div>
+    <!-- <div *ngIf="form.get('name').error?.required && form.get('name').touched" class="alert alert-danger">Champs non rempli</div> -->
     <!-- Champs CA -->
     <div class="form-goup">
       <label for="ca">Chiffre d'affaire</label>
@@ -28,6 +29,6 @@
       <textarea formControlName="comment" class="form-control" id="comment"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+    <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Sauvegarder</button>
   </form>
   </div>

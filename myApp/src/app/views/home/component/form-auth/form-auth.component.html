@@ -1,0 +1,16 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- Champs name -->
+    <div class="form-goup">
+      <label for="username">Name</label>
+      <input formControlName="username" type="text" class="form-control" id="username">
+    </div>
+    <!-- Champs pwd -->
+    <div class="form-goup">
+      <label for="password">Password</label>
+      <input formControlName="password" type="text" class="form-control" id="password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Authenticate</button>
+  </form>
+  </div>

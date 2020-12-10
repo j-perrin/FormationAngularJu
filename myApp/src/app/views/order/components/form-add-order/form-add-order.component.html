@@ -10,6 +10,11 @@
       <label for="client">Client</label>
       <input formControlName="client" type="text" class="form-control" id="client">
     </div>
+    <!-- <div *ngIf="form.get('client').invalid && form.get('tva').touched" class="alert alert-danger">Champs invalide</div>
+    <div *ngIf="form.get('client').error?.required && form.get('tva').touched" class="alert alert-danger">Champs invalide</div>
+    <div *ngIf="form.get('client').error?.minlenght && form.get('tva').touched" class="alert alert-danger">Min 5 char</div> -->
+
+
     <!-- Champs nb jour -->
     <div class="form-goup">
       <label for="nbJours">Nombre jours</label>
@@ -39,6 +44,6 @@
       <textarea formControlName="comment" class="form-control" id="comment"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+    <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Sauvegarder</button>
   </form>
   </div>

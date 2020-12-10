@@ -14,6 +14,7 @@ export class PageListUserComponent implements OnInit {
   public headers: string[];
   public users: Observable<User[]>;
 
+
   public btn: BtnI;
 
   public title: string;
@@ -27,7 +28,13 @@ export class PageListUserComponent implements OnInit {
     this.subtitle = "List of Users"
     this.headers = ['Nom', 'Role'];
     this.btn = {label: "Add user", route: "add"};
-    this.users = this.userService.user;
+
+    if(localStorage.userRole === 'ADMIN'){
+      this.users = this.userService.user;
+    }
+    else {
+      this.users = this.userService.user;
+    }
   }
 
   // ngOnDestroy(): void {

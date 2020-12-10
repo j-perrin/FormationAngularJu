@@ -7,7 +7,7 @@ export class User implements UserI{
   password: string;
   role = UserRole.USER;
 
-  description(){
+  description(): string{
     return `${this.username} is ${this.role}.`;
   }
 
