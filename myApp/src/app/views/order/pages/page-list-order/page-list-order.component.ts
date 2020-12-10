@@ -23,9 +23,14 @@ export class PageListOrderComponent implements OnInit {
   public btnFilter: BtnI;
   public filterSwitch: boolean = false;
 
+  public title: string;
+  public subtitle: string;
+
   constructor(private orderService: OrdersService) { }
 
   ngOnInit(): void {
+    this.title ="Orders";
+    this.subtitle = "List of Orders";
     this.headers = ['Type', 'Client', 'Nb. jours', 'Total HT', 'Total TTC', 'Etat']
     this.btnRoute = {label:'Add an order', route:'add'};
     this.btnHref = {label:'Go to Google', href:'http://www.google.fr'};

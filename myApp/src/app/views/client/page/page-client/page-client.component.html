@@ -1,18 +1,21 @@
-<app-table-dark *ngIf="clients | async as listCLient" [headers]="headers">
-<tr *ngFor="let c of listCLient">
-  <!-- <td>{{ c.state }}</td>-->
-  <td>
-    <select (change)="changeClientState(c, $event)">
-      <option *ngFor="let item of typeList" [value]="item" [selected]="item === c.state">{{ item }}</option>
-    </select>
-</td>
-  <td>{{ c.name }}</td>
-  <td>{{ c.ca }}</td>
-  <td>{{ c.total() }}</td>
-  <td>{{ c.comment }}</td>
-</tr>
-</app-table-dark>
 
-<app-btn [label]="btnFilter.label" [action]="btnFilter.action" (clicked)="filterCa()">
-  <app-icon-filter *ngIf="!btnFilter.label"></app-icon-filter>
-</app-btn>
+<app-titres-b [title]="title" [subtitle]="subtitle">
+  <app-table-dark *ngIf="clients | async as listCLient" [headers]="headers">
+  <tr *ngFor="let c of listCLient">
+    <!-- <td>{{ c.state }}</td>-->
+    <td>
+      <select (change)="changeClientState(c, $event)">
+        <option *ngFor="let item of typeList" [value]="item" [selected]="item === c.state">{{ item }}</option>
+      </select>
+  </td>
+    <td>{{ c.name }}</td>
+    <td>{{ c.ca }}</td>
+    <td>{{ c.total() }}</td>
+    <td>{{ c.comment }}</td>
+  </tr>
+  </app-table-dark>
+
+  <app-btn [label]="btnFilter.label" [action]="btnFilter.action" (clicked)="filterCa()">
+    <app-icon-filter *ngIf="!btnFilter.label"></app-icon-filter>
+  </app-btn>
+</app-titres-b>

@@ -5,6 +5,8 @@ import { OrderRoutingModule } from './order-routing.module';
 import { PageListOrderComponent } from './pages/page-list-order/page-list-order.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { IconModule } from 'src/app/icon/icon.module';
+import { TemplatesModule } from 'src/app/templates/templates.module';
+import { TextsModule } from 'src/app/texts/texts.module';
 
 
 @NgModule({
@@ -13,7 +15,8 @@ import { IconModule } from 'src/app/icon/icon.module';
     CommonModule,
     OrderRoutingModule,
     SharedModule,
-    IconModule
+    IconModule,
+    TemplatesModule
   ]
 })
 export class OrderModule { }

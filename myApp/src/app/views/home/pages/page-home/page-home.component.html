@@ -1,3 +1,5 @@
 <p>page-home works!</p>
-<p>{{ users }}</p>
-<p>{{ userDescription }}</p>
+<div *ngIf="users | async as userList">
+  <p>{{ userList }}</p>
+  <p>{{ userList[0].description() }}</p>
+</div>

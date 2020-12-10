@@ -12,6 +12,10 @@ import { ClientService } from '../../services/client.service';
 })
 export class PageClientComponent implements OnInit {
 
+
+  public title: string;
+  public subtitle: string;
+
   public headers: string[];
   public clients: Observable<Client[]>;
   public typeList: string[] = Object.values(StateClient);
@@ -21,6 +25,8 @@ export class PageClientComponent implements OnInit {
   constructor(private clientService: ClientService) { }
 
   ngOnInit(): void {
+    this.title = "Clients"
+    this.subtitle = "List of Clients"
     this.btnFilter = {label:"Show little ca", action:true};
     this.headers = ['Type', 'Nom', 'Ca', 'Ca Total','Commentaire']
     this.filterSwitch = true;

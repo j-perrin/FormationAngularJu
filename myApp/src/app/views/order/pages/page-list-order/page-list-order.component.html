@@ -1,21 +1,26 @@
-<app-table-light *ngIf="orders | async as orderList" [headers]="headers">
-<tr *ngFor="let c of orderList">
-  <td>{{ c.typePresta }}</td>
-  <td>{{ c.client }}</td>
-  <td [appColorDay]="c.nbJours">{{ c | jour }}</td>
-  <td>{{ c | total | currency: 'EUR' }}</td>
-  <td>{{ c | total: 'TTC' | currency: 'EUR' }}</td>
-  <td [appColorState]="c.state">
-    <select (change)="stateChange(c, $event)">
-      <option *ngFor="let item of states" [value]="item" [selected]="item === c.state">{{ item }} </option>
-    </select>
-  </td>
-</tr>
-</app-table-light>
 
-<app-btn [label]="btnRoute.label" [route]="btnRoute.route"></app-btn>
-<app-btn [label]="btnHref.label" [href]="btnHref.href"></app-btn>
-<app-btn [label]="btnAction.label" [action]="btnAction.action" (clicked)="openPopup()"></app-btn>
-<app-btn [label]="btnFilter.label" [action]="btnFilter.action" (clicked)="filterCancel()">
-  <app-icon-filter></app-icon-filter>
-</app-btn>
+  <app-titres-a [title]="title" [subtitle]="subtitle">
+
+  <app-table-light *ngIf="orders | async as orderList" [headers]="headers">
+  <tr *ngFor="let c of orderList">
+    <td>{{ c.typePresta }}</td>
+    <td>{{ c.client }}</td>
+    <td [appColorDay]="c.nbJours">{{ c | jour }}</td>
+    <td>{{ c | total | currency: 'EUR' }}</td>
+    <td>{{ c | total: 'TTC' | currency: 'EUR' }}</td>
+    <td [appColorState]="c.state">
+      <select (change)="stateChange(c, $event)">
+        <option *ngFor="let item of states" [value]="item" [selected]="item === c.state">{{ item }} </option>
+      </select>
+    </td>
+  </tr>
+  </app-table-light>
+
+  <app-btn [label]="btnRoute.label" [route]="btnRoute.route"></app-btn>
+  <app-btn [label]="btnHref.label" [href]="btnHref.href"></app-btn>
+  <app-btn [label]="btnAction.label" [action]="btnAction.action" (clicked)="openPopup()"></app-btn>
+  <app-btn [label]="btnFilter.label" [action]="btnFilter.action" (clicked)="filterCancel()">
+    <app-icon-filter></app-icon-filter>
+  </app-btn>
+
+  </app-titres-a>

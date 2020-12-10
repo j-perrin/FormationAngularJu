@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
 import { BtnI } from 'src/app/shared/interfaces/btn-i';
@@ -16,13 +16,22 @@ export class PageListUserComponent implements OnInit {
 
   public btn: BtnI;
 
+  public title: string;
+  public subtitle: string;
+
 
   constructor(public userService: UserService) { }
 
   ngOnInit(): void {
+    this.title = "Users"
+    this.subtitle = "List of Users"
     this.headers = ['Nom', 'Role'];
     this.btn = {label: "Add user", route: "add"};
     this.users = this.userService.user;
   }
+
+  // ngOnDestroy(): void {
+
+  // }
 
 }
