@@ -48,4 +48,13 @@ export class ClientService {
     return this.update(obj);
   }
 
+  public showClientWithCaLessThan(maxCa: number): Observable<Client[]>{
+    return this.http.get<Client[]>(`${this.url}clients/`).pipe(
+      map(datas => datas
+        .filter(data => data.ca < maxCa)
+        .map(filterdata => new Client(filterdata))
+        )
+    )
+  }
+
 }

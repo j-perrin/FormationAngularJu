@@ -13,3 +13,6 @@
 </tr>
 </app-table-dark>
 
+<app-btn [label]="btnFilter.label" [action]="btnFilter.action" (clicked)="filterCa()">
+  <app-icon-filter *ngIf="!btnFilter.label"></app-icon-filter>
+</app-btn>
