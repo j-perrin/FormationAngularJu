@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { StateClient } from 'src/app/shared/enums/state-client.enum';
 import { BtnI } from 'src/app/shared/interfaces/btn-i';
 import { Client } from 'src/app/shared/models/client.model';
@@ -12,7 +13,7 @@ import { ClientService } from '../../services/client.service';
 export class PageClientComponent implements OnInit {
 
   public headers: string[];
-  public clients: Client[];
+  public clients: Observable<Client[]>;
   public typeList: string[] = Object.values(StateClient);
   public filterSwitch: boolean = false;
   public btnFilter: BtnI;
@@ -23,10 +24,7 @@ export class PageClientComponent implements OnInit {
     this.btnFilter = {label:"Show little ca", action:true};
     this.headers = ['Type', 'Nom', 'Ca', 'Ca Total','Commentaire']
     this.filterSwitch = true;
-    this.clientService.collection.subscribe(datas => {
-      this.clients = datas
-      console.log(this.clients);
-    });
+    this.clients = this.clientService.collection;
 
   }
 
@@ -40,14 +38,10 @@ export class PageClientComponent implements OnInit {
   public filterCa():void{
     if(this.filterSwitch){
       this.btnFilter.label = '';
-      this.clientService.showClientWithCaLessThan(100000).subscribe(datas => {
-        this.clients = datas;
-      })
+      this.clients = this.clientService.showClientWithCaLessThan(100000);
     } else {
-      this.btnFilter.label = 'Show little ca';
-      this.clientService.collection.subscribe(datas => {
-        this.clients = datas
-      });
+      this.btnFilter.label = 'Réinitialise';
+      this.clients = this.clientService.collection
     }
     this.filterSwitch = !this.filterSwitch;
   }

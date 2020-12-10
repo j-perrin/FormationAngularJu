@@ -1,5 +1,5 @@
-<app-table-dark *ngIf="clients" [headers]="headers">
-<tr *ngFor="let c of clients">
+<app-table-dark *ngIf="clients | async as listCLient" [headers]="headers">
+<tr *ngFor="let c of listCLient">
   <!-- <td>{{ c.state }}</td>-->
   <td>
     <select (change)="changeClientState(c, $event)">

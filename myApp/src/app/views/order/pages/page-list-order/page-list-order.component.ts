@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { StateOrder } from 'src/app/shared/enums/state-order.enum';
 import { BtnI } from 'src/app/shared/interfaces/btn-i';
 import { Order } from 'src/app/shared/models/order.model';
@@ -11,7 +12,8 @@ import { OrdersService } from '../../services/orders.service';
 })
 export class PageListOrderComponent implements OnInit {
 
-  public orders: Order[];
+  //public orders: Order[];
+  public orders: Observable<Order[]>;
   public headers: string[];
   public states: string[]= Object.values(StateOrder);
   public btnRoute: BtnI;
@@ -31,10 +33,7 @@ export class PageListOrderComponent implements OnInit {
     this.btnFilter = {label:'Filter', action:true};
 
 
-    this.orderService.collection.subscribe(datas => {
-      this.orders = datas
-      console.log(this.orders);
-    });
+    this.orders = this.orderService.collection;
   }
 
   public stateChange(order: Order, event:any):void {
@@ -52,15 +51,9 @@ export class PageListOrderComponent implements OnInit {
 
   public filterCancel():void{
     if(!this.filterSwitch){
-      console.log(this.filterSwitch)
-      this.orderService.getFilterByState(StateOrder.CANCEL).subscribe(datas => {
-        this.orders = datas;
-      })
+      this.orders = this.orderService.getFilterByState(StateOrder.CANCEL);
     } else {
-      console.log(this.filterSwitch)
-      this.orderService.collection.subscribe(datas => {
-        this.orders = datas
-      });
+      this.orders = this.orderService.collection;
     }
     this.filterSwitch = !this.filterSwitch;
   }
