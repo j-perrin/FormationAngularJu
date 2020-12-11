@@ -22,7 +22,7 @@ export class ContentComponent implements OnInit {
   }
 
   public connexion(): void{
-    if(localStorage.userConnected === 'true'){
+    if(localStorage.id){
       // localStorage.removeItem("userConnected");
       // localStorage.removeItem("userRole");
       // localStorage.removeItem("username");

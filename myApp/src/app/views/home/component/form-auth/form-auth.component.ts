@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { UserService } from 'src/app/core/services/user.service';
 import { User } from 'src/app/shared/models/user.model';
 
 @Component({
@@ -9,9 +10,10 @@ import { User } from 'src/app/shared/models/user.model';
 })
 export class FormAuthComponent implements OnInit {
 
-  @Input() user = new User();
+  //@Input() user = new User();
   @Output() clicked: EventEmitter<User> = new EventEmitter();
 
+  private user = new User();
   public form: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }

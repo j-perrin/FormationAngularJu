@@ -11,6 +11,10 @@ export class User implements UserI{
     return `${this.username} is ${this.role}.`;
   }
 
+  isAdmin(): boolean{
+    return this.role === UserRole.ADMIN;
+  }
+
   constructor(obj?: Partial<User>){
     if(obj){
       Object.assign(this, obj);

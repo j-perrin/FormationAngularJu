@@ -10,7 +10,8 @@ export class ControlService implements CanActivate{
 
   // call in app-routing.module.ts, give access to certain routes
   canActivate(): boolean {
-    if(localStorage.userConnected === 'true'){
+    //if(localStorage.userConnected === 'true'){
+    if(localStorage.id){
       return true;
     }
     this.router.navigate(['/home']);

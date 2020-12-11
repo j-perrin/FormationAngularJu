@@ -13,6 +13,7 @@ import { User } from 'src/app/shared/models/user.model';
 export class PageHomeComponent implements OnInit {
 
   public users: Observable<User[]>;
+  public user: User;
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -26,16 +27,27 @@ export class PageHomeComponent implements OnInit {
     //     console.log('YES U R AUTHENTICATED')
     //   }
     // });
-    this.userService.getAll().subscribe( datas => {
-      datas.forEach(data => {
-        if(data.username === user.username && data.password === user.password){
-          localStorage.userConnected = 'true';
-          localStorage.username = data.username;
-          localStorage.userRole = data.role;
-          this.router.navigate(["/orders"]);
-        }
-      });
+    this.user = user;
+    this.userService.getByUsernameAndPassword(this.user).subscribe(data => {
+      console.log(this.user)
+      if(data.id){
+        this.user = data;
+        localStorage.id = this.user.id;
+        this.router.navigate(["/orders"]);
+      }
     });
+
+
+    // this.userService.getAll().subscribe( datas => {
+    //   datas.forEach(data => {
+    //     if(data.username === user.username && data.password === user.password){
+    //       localStorage.userConnected = 'true';
+    //       localStorage.username = data.username;
+    //       localStorage.userRole = data.role;
+    //       this.router.navigate(["/orders"]);
+    //     }
+    //   });
+    // });
   }
 
 }
