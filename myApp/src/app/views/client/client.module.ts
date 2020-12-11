@@ -10,10 +10,11 @@ import { TextsModule } from 'src/app/texts/texts.module';
 import { PageAddClientComponent } from './page/page-add-client/page-add-client.component';
 import { FormAddClientComponent } from './component/form-add-client/form-add-client.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageViewComponent } from './page/page-view/page-view.component';
 
 
 @NgModule({
-  declarations: [PageClientComponent, PageAddClientComponent, FormAddClientComponent],
+  declarations: [PageClientComponent, PageAddClientComponent, FormAddClientComponent, PageViewComponent],
   imports: [
     CommonModule,
     ClientRoutingModule,

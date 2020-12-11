@@ -10,11 +10,12 @@ import { RouterModule } from '@angular/router';
 import { TableDarkComponent } from './components/table-dark/table-dark.component';
 import { TableStripedComponent } from './components/table-striped/table-striped.component';
 import { ColorRoleDirective } from './directives/color-role.directive';
+import { TotalClientPipe } from './pipes/total-client.pipe';
 
 
 
 @NgModule({
-  declarations: [TableLightComponent, TotalPipe, JourPipe, ColorStateDirective, ColorDayDirective, BtnComponent, TableDarkComponent, TableStripedComponent, ColorRoleDirective],
+  declarations: [TableLightComponent, TotalPipe, JourPipe, ColorStateDirective, ColorDayDirective, BtnComponent, TableDarkComponent, TableStripedComponent, ColorRoleDirective, TotalClientPipe],
   imports: [
     CommonModule,
     RouterModule

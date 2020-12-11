@@ -34,6 +34,14 @@ export class ClientService {
     this.pCollection = col;
   }
 
+  public getClientById(id:string | null): Observable<Client>{
+    return this.http.get<Client>(`${this.url}clients/${id}`).pipe(
+      map( data => {
+        return new Client(data)
+      })
+    )
+  }
+
   // Update
   public update(client: Client): Observable<Client> {
     return this.http.put<Client>(`${this.url}clients/${client.id}`, client).pipe(

@@ -31,7 +31,7 @@ export class PageClientComponent implements OnInit {
 
     this.btnFilter = {label:"Show little ca", action:true};
     this.btnRoute = {label:"Add client", route:"add"};
-    this.headers = ['Type', 'Nom', 'Ca', 'Ca Total','Commentaire']
+    this.headers = ['Type', 'Nom', 'Ca', 'Ca Total','Commentaire', 'Action']
     this.filterSwitch = true;
     this.clients = this.clientService.collection;
 

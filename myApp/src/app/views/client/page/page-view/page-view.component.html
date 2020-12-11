@@ -1,0 +1,14 @@
+<app-titres-b [title]="title" [subtitle]="subtitle">
+  <app-table-dark [headers]="headers">
+  <tr >
+    <td>{{ client.name }}</td>
+    <td>{{ client.comment }}</td>
+    <td>{{ client.ca }}</td>
+    <td>{{ client.tva }}</td>
+    <td>{{ client.total() | total}}</td>
+    <td>{{ client.total() | total}}</td>
+  </tr>
+  </app-table-dark>
+
+  <app-btn [label]="btnRoute.label" [route]="btnRoute.route"></app-btn>
+</app-titres-b>
